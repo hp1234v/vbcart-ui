@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { useRouter } from "next/router";
 
+import styles from "./cart.module.css";
+
 
 const Cart: React.FC = () => {
   const router = useRouter();
@@ -23,17 +25,7 @@ const Cart: React.FC = () => {
         <>
           {/* Cart items would go here */}
           <button
-            style={{
-              background: "#4f46e5",
-              color: "#fff",
-              border: "none",
-              borderRadius: 6,
-              padding: "0.7rem 2rem",
-              fontWeight: 700,
-              fontSize: "1.1rem",
-              marginTop: 24,
-              cursor: "pointer"
-            }}
+            className={styles.checkoutButton}
             onClick={() => router.push("/checkout")}
           >
             Proceed to Checkout

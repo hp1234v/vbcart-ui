@@ -1,0 +1,35 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  flex: 1;
+  transition: justify-content 0.2s;
+}
+
+.contentJustifyCenter {
+  justify-content: center;
+}
+
+.contentJustifyStart {
+  justify-content: flex-start;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainAlignCenter {
+  align-items: center;
+}
+
+.mainAlignStart {
+  align-items: flex-start;
+}

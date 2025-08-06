@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+import styles from './signup.module.css';
+
 export default function Signup() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -33,45 +35,45 @@ export default function Signup() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: '80px auto', padding: 24, border: '1px solid #ccc', borderRadius: 8 }}>
+    <div className={styles.container}>
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: 16 }}>
+        <div className={styles.inputGroup}>
           <label>Username</label>
           <input
             type="text"
             value={username}
             onChange={e => setUsername(e.target.value)}
-            style={{ width: '100%', padding: 8, marginTop: 4 }}
+            className={styles.input}
             required
           />
         </div>
-        <div style={{ marginBottom: 16 }}>
+        <div className={styles.inputGroup}>
           <label>Password</label>
           <input
             type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
-            style={{ width: '100%', padding: 8, marginTop: 4 }}
+            className={styles.input}
             required
           />
         </div>
-        <div style={{ marginBottom: 16 }}>
+        <div className={styles.inputGroup}>
           <label>Confirm Password</label>
           <input
             type="password"
             value={confirmPassword}
             onChange={e => setConfirmPassword(e.target.value)}
-            style={{ width: '100%', padding: 8, marginTop: 4 }}
+            className={styles.input}
             required
           />
         </div>
-        {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
-        {success && <div style={{ color: 'green', marginBottom: 12 }}>{success}</div>}
-        <button type="submit" style={{ width: '100%', padding: 10 }}>Sign Up</button>
+        {error && <div className={styles.error}>{error}</div>}
+        {success && <div className={styles.success}>{success}</div>}
+        <button type="submit" className={styles.button}>Sign Up</button>
       </form>
-      <div style={{ marginTop: 16, fontSize: 12, color: '#888' }}>
-        Already have an account? <a href="/login" style={{ color: '#4f46e5' }}>Login</a>
+      <div className={styles.hint}>
+        Already have an account? <a href="/login" className={styles.link}>Login</a>
       </div>
     </div>
   );

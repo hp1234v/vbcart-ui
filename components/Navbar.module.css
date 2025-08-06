@@ -1,0 +1,92 @@
+/* Navbar.module.css */
+
+.header {
+  background: linear-gradient(90deg, #6366f1 0%, #312e81 100%);
+  padding: 1.5rem 0 0.5rem 0;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 24px rgba(49,46,129,0.13), 0 1.5px 4px rgba(99,102,241,0.10);
+  width: 100vw;
+  border-radius: 0;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1rem;
+  min-height: 60px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.sidebarButton {
+  background: #fff;
+  color: #4f46e5;
+  border: none;
+  border-radius: 8px;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logoImg {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.logoText {
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(49,46,129,0.10);
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2.5rem;
+}
+
+.navLink {
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.navLinkHover {
+  background: rgba(99,102,241,0.15);
+  color: #c7d2fe;
+}
+
+.icon {
+  margin-right: 8px;
+}

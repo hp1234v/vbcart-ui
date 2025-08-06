@@ -5,6 +5,7 @@ import ProductList from "./ProductList";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 import { Product } from "../types/product";
+import styles from "./Home.module.css";
 
 const products: Product[] = [
   {
@@ -23,6 +24,22 @@ const products: Product[] = [
     image: "/images/jeans.png",
     category: "Bottoms",
   },
+  {
+    id: "3",
+    name: "Denim Jeans",
+    description: "Stylish blue denim jeans.",
+    price: 799,
+    image: "/images/jeans.png",
+    category: "Bottoms",
+  },
+  {
+    id: "4",
+    name: "Denim Jeans",
+    description: "Stylish blue denim jeans.",
+    price: 799,
+    image: "/images/jeans.png",
+    category: "Bottoms",
+  },
   // Add more products as needed
 ];
 
@@ -34,18 +51,31 @@ const Home: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
   const filteredProducts = selectedCategory ? products.filter(p => p.category === selectedCategory) : products;
   return (
-    <div>
+    <div className={styles.root}>
       <Navbar onToggleSidebar={() => setSidebarCollapsed((c) => !c)} sidebarCollapsed={sidebarCollapsed} />
-      <div style={{ display: "flex", alignItems: "flex-start", width: "100%" }}>
-        <Sidebar
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-          collapsed={sidebarCollapsed}
-        />
-        <main style={{ flex: 1 }}>
-          <h1 style={{ margin: "1rem 0 2rem 0" }}>Welcome to the Clothing Website</h1>
-          <ProductList products={filteredProducts} />
+      <div
+        className={
+          styles.content +
+          ' ' +
+          (sidebarCollapsed ? styles.contentJustifyCenter : styles.contentJustifyStart)
+        }
+      >
+        {!sidebarCollapsed && (
+          <Sidebar
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onSelectCategory={setSelectedCategory}
+            collapsed={sidebarCollapsed}
+          />
+        )}
+        <main
+          className={
+            styles.main +
+            ' ' +
+            (sidebarCollapsed ? styles.mainAlignCenter : styles.mainAlignStart)
+          }
+        >
+          <ProductList products={filteredProducts} centered={sidebarCollapsed} />
         </main>
       </div>
       <Footer />

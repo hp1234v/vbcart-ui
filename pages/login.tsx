@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+import styles from './login.module.css';
+
 const DUMMY_USER = {
   username: 'user',
   password: 'password123',
@@ -29,33 +31,33 @@ export default function Login() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: '80px auto', padding: 24, border: '1px solid #ccc', borderRadius: 8 }}>
+    <div className={styles.container}>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: 16 }}>
+        <div className={styles.inputGroup}>
           <label>Username</label>
           <input
             type="text"
             value={username}
             onChange={e => setUsername(e.target.value)}
-            style={{ width: '100%', padding: 8, marginTop: 4 }}
+            className={styles.input}
             required
           />
         </div>
-        <div style={{ marginBottom: 16 }}>
+        <div className={styles.inputGroup}>
           <label>Password</label>
           <input
             type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
-            style={{ width: '100%', padding: 8, marginTop: 4 }}
+            className={styles.input}
             required
           />
         </div>
-        {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
-        <button type="submit" style={{ width: '100%', padding: 10 }}>Login</button>
+        {error && <div className={styles.error}>{error}</div>}
+        <button type="submit" className={styles.button}>Login</button>
       </form>
-      <div style={{ marginTop: 16, fontSize: 12, color: '#888' }}>
+      <div className={styles.hint}>
         <div>Dummy credentials:</div>
         <div>Username: <b>user</b></div>
         <div>Password: <b>password123</b></div>
