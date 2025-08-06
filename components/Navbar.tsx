@@ -62,6 +62,9 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar, sidebarCollapsed }) =>
           </Link>
         </div>
         <nav style={{ display: "flex", justifyContent: "flex-end", gap: "2.5rem" }}>
+          <Link href="/login" style={hovered === "login" ? { ...linkStyle, ...linkHoverStyle } : linkStyle} onMouseEnter={() => setHovered("login")} onMouseLeave={() => setHovered(null)}>
+            <span role="img" aria-label="Login" style={{ marginRight: 8 }}>🔑</span>Login
+          </Link>
           <Link href="/cart" style={hovered === "cart" ? { ...linkStyle, ...linkHoverStyle } : linkStyle} onMouseEnter={() => setHovered("cart")} onMouseLeave={() => setHovered(null)}>
             <span role="img" aria-label="Cart" style={{ marginRight: 8 }}>🛒</span>Cart
           </Link>
