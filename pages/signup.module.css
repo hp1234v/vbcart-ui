@@ -4,6 +4,8 @@
   padding: 24px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  background: #fff;
+  box-sizing: border-box;
 }
 
 .inputGroup {
@@ -30,6 +32,7 @@
 .button {
   width: 100%;
   padding: 10px;
+  font-size: 1rem;
 }
 
 .hint {
@@ -40,4 +43,21 @@
 
 .link {
   color: #4f46e5;
+}
+
+/* Responsive adjustments for screens below 600px */
+@media (max-width: 600px) {
+  .container {
+    max-width: 98vw;
+    margin: 24px 1vw;
+    padding: 12px;
+    border-radius: 6px;
+  }
+  .button {
+    padding: 14px;
+    font-size: 1.1rem;
+  }
+  .hint {
+    font-size: 11px;
+  }
 }

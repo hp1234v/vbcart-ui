@@ -10,12 +10,15 @@
   width: 100%;
   flex: 1;
   transition: justify-content 0.2s;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
 }
 
+/* When content should be centered horizontally */
 .contentJustifyCenter {
   justify-content: center;
 }
 
+/* When content should align left */
 .contentJustifyStart {
   justify-content: flex-start;
 }
@@ -24,12 +27,33 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 0 1rem; /* add horizontal padding for smaller screens */
+  box-sizing: border-box;
 }
 
+/* When main content should be centered vertically */
 .mainAlignCenter {
   align-items: center;
 }
 
+/* When main content should align from the top */
 .mainAlignStart {
   align-items: flex-start;
+}
+
+/* 📱 Responsive media query for smaller screens */
+@media (max-width: 768px) {
+  .content {
+    justify-content: center !important; /* override flex-start if needed */
+    align-items: center;
+    padding: 1rem 0.5rem;
+  }
+
+  .main {
+    padding: 1rem 0.5rem;
+  }
+
+  .mainAlignStart {
+    align-items: center;
+  }
 }

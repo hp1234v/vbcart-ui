@@ -1,12 +1,7 @@
+// components/Sidebar.tsx
+
 import React from "react";
-
 import styles from "./Sidebar.module.css";
-
-interface SidebarProps {
-  categories: string[];
-  selectedCategory: string | null;
-  onSelectCategory: (category: string | null) => void;
-}
 
 interface SidebarProps {
   categories: string[];
@@ -15,14 +10,17 @@ interface SidebarProps {
   collapsed: boolean;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ categories, selectedCategory, onSelectCategory, collapsed }) => {
+const Sidebar: React.FC<SidebarProps> = ({
+  categories,
+  selectedCategory,
+  onSelectCategory,
+  collapsed,
+}) => {
   return (
     <aside
-      className={
-        styles.sidebar +
-        ' ' +
-        (collapsed ? styles.sidebarCollapsed : styles.sidebarExpanded)
-      }
+      className={`${styles.sidebar} ${
+        collapsed ? styles.sidebarCollapsed : styles.sidebarExpanded
+      }`}
     >
       {!collapsed && (
         <>
@@ -30,10 +28,9 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, selectedCategory, onSelec
           <ul className={styles.list}>
             <li className={styles.listItem}>
               <button
-                className={
-                  styles.button +
-                  (selectedCategory === null ? ' ' + styles.buttonSelected : '')
-                }
+                className={`${styles.button} ${
+                  selectedCategory === null ? styles.buttonSelected : ""
+                }`}
                 onClick={() => onSelectCategory(null)}
               >
                 All
@@ -42,10 +39,9 @@ const Sidebar: React.FC<SidebarProps> = ({ categories, selectedCategory, onSelec
             {categories.map((cat) => (
               <li key={cat} className={styles.listItem}>
                 <button
-                  className={
-                    styles.button +
-                    (selectedCategory === cat ? ' ' + styles.buttonSelected : '')
-                  }
+                  className={`${styles.button} ${
+                    selectedCategory === cat ? styles.buttonSelected : ""
+                  }`}
                   onClick={() => onSelectCategory(cat)}
                 >
                   {cat}

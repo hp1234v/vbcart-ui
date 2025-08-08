@@ -1,15 +1,58 @@
+/* Footer.module.css */
+
 .footer {
-  background: #312e81;
-  color: #fff;
+  background: rgba(49, 46, 129, 0.4); /* same as sidebar/navbar */
+  backdrop-filter: blur(14px);
+  color: #e0e7ff;
   text-align: center;
-  padding: 1.2rem 0;
-  margin-top: 40px;
-  border-radius: 0;
-  box-shadow: 0 2px 8px rgba(49,46,129,0.08);
-  font-weight: 500;
-  position: relative;
-  bottom: 0;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  padding: 1.4rem 1rem;
+  margin-top: 60px;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.strong {
+  font-weight: 700;
+  color: #c7d2fe;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.iconLink {
+  color: #e0e7ff;
+  font-size: 1.3rem;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.iconLink:hover {
+  color: #c7d2fe;
+  transform: scale(1.15);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 600px) {
+  .footer {
+    padding: 1rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .iconLink {
+    font-size: 1.1rem;
+  }
 }

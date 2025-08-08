@@ -6,6 +6,7 @@
   border-radius: 10px;
   background: #fff;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .heading {
@@ -14,4 +15,21 @@
 
 .text {
   color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .container {
+    max-width: 95vw;
+    margin: 32px auto;
+    padding: 16px;
+    border-radius: 6px;
+  }
+  .heading {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .text {
+    font-size: 1rem;
+  }
 }

@@ -1,8 +1,8 @@
-// Example for Navbar.tsx
-
+// components/Navbar.tsx
 
 import Link from "next/link";
 import React from "react";
+import { FaBars, FaTimes, FaShoppingCart, FaSignInAlt } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 
 interface NavbarProps {
@@ -12,44 +12,45 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onToggleSidebar, sidebarCollapsed }) => {
   const [hovered, setHovered] = React.useState<string | null>(null);
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
+        {/* Left section */}
         <div className={styles.left}>
           <button
             aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
             onClick={onToggleSidebar}
             className={styles.sidebarButton}
           >
-            {sidebarCollapsed ? (
-              <span role="img" aria-label="Open sidebar">☰</span>
-            ) : (
-              <span role="img" aria-label="Close sidebar">✖️</span>
-            )}
+            {sidebarCollapsed ? <FaBars /> : <FaTimes />}
           </button>
+
           <Link href="/" className={styles.logoLink}>
-            <img src="/images/tshirt.png" alt="VBcart Logo" className={styles.logoImg} />
-            <span className={styles.logoText}>
-              VB Cart
-            </span>
+            <img src="/images/tshirt.png" alt="VB Cart Logo" className={styles.logoImg} />
+            <span className={styles.logoText}>VB Cart</span>
           </Link>
         </div>
+
+        {/* Navigation links */}
         <nav className={styles.nav}>
           <Link
             href="/login"
-            className={hovered === "login" ? `${styles.navLink} ${styles.navLinkHover}` : styles.navLink}
+            className={`${styles.navLink} ${hovered === "login" ? styles.navLinkHover : ""}`}
             onMouseEnter={() => setHovered("login")}
             onMouseLeave={() => setHovered(null)}
           >
-            <span role="img" aria-label="Login" className={styles.icon}>🔑</span>Login
+            <FaSignInAlt className={styles.icon} />
+            Login
           </Link>
           <Link
             href="/cart"
-            className={hovered === "cart" ? `${styles.navLink} ${styles.navLinkHover}` : styles.navLink}
+            className={`${styles.navLink} ${hovered === "cart" ? styles.navLinkHover : ""}`}
             onMouseEnter={() => setHovered("cart")}
             onMouseLeave={() => setHovered(null)}
           >
-            <span role="img" aria-label="Cart" className={styles.icon}>🛒</span>Cart
+            <FaShoppingCart className={styles.icon} />
+            Cart
           </Link>
         </nav>
       </div>

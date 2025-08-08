@@ -1,28 +1,41 @@
+/* Sidebar.module.css */
+
 .sidebar {
-  background: #eef2ff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  margin-right: 32px;
-  transition: min-width 0.2s, padding 0.2s;
+  background: rgba(49, 46, 129, 0.4); /* Match Footer/Navbar tone */
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  color: #e0e7ff;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Collapsed/Expanded styles */
 .sidebarCollapsed {
   min-width: 0;
+  overflow: hidden;
   padding: 1rem 0.5rem;
 }
 
 .sidebarExpanded {
-  min-width: 150px;
-  padding: 2rem 1rem;
+  min-width: 180px;
 }
 
+/* Heading */
 .heading {
-  margin-bottom: 1.5rem;
-  color: #4f46e5;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-top: 16px;
+  margin-bottom: 1.5rem;
+  color: #c7d2fe;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* List */
 .list {
   list-style: none;
   padding: 0;
@@ -30,23 +43,54 @@
 }
 
 .listItem {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
+/* Buttons */
 .button {
-  border: 1px solid #4f46e5;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
   width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #e0e7ff;
   font-weight: 500;
-  margin-bottom: 4px;
-  background: #fff;
-  color: #4f46e5;
-  transition: background 0.2s, color 0.2s;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-align: left;
+  backdrop-filter: blur(3px);
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.02);
 }
 
 .buttonSelected {
   background: #4f46e5;
-  color: #fff;
+  color: white;
+  box-shadow: 0 3px 12px rgba(99, 102, 241, 0.3);
+  border-color: #4f46e5;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .sidebarCollapsed,
+  .sidebarExpanded {
+    min-width: 100%;
+    padding: 1rem;
+  }
+
+ .heading {
+  text-align: center;   /* ✅ Semicolon added */
+  font-size: 1.1rem;
+ }
 }
